@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: queryapi-ingress
+  namespace: queryapi
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/override: get-only
+spec:
+  rules:
+    - host: <yourDomain>
+      http:
+        paths:
+        - path: /api/*
+          backend:
+            serviceName: queryapi
+            servicePort: 80

@@ -1,0 +1,8 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: get-only
+  namespace: queryapi
+route:
+  methods:
+  - GET

@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: commandapi-ingress
+  namespace: commandapi
+  annotations:
+    kubernetes.io/ingress.class: kong
+    konghq.com/override: post-put-patch-only
+spec:
+  rules:
+    - host: <yourDomain>
+      http:
+        paths:
+        - path: /api/*
+          backend:
+            serviceName: commandapi
+            servicePort: 80

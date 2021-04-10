@@ -1,0 +1,11 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: post-put-patch-only
+  namespace: commandapi
+route:
+  methods:
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
